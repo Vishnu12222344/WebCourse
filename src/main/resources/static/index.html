@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCourse Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Stars -->
+<div class="stars" id="stars"></div>
+
+<div class="container">
+    <h1>🎓 WebCourse Manager</h1>
+
+    <div class="card">
+        <h2 id="form-title">Add New Course</h2>
+        <form id="course-form">
+            <input type="hidden" id="courseId">
+
+            <div class="form-group">
+                <label>Course Name</label>
+                <input type="text" id="courseName" placeholder="Enter course title">
+                <small class="error-msg" id="err-courseName"></small>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="courseDescription" placeholder="Enter course details"></textarea>
+                <small class="error-msg" id="err-courseDescription"></small>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Listed Date</label>
+                    <input type="date" id="listedOn">
+                    <small class="error-msg" id="err-listedOn"></small>
+                </div>
+                <div class="form-group">
+                    <label>Price (₹)</label>
+                    <input type="number" id="price" step="0.01" placeholder="0.00">
+                    <small class="error-msg" id="err-price"></small>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" id="submit-btn" class="btn-primary">Save Course</button>
+                <button type="button" id="cancel-btn" class="btn-secondary" style="display:none;">Cancel Edit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Available Courses</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Listed On</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="course-list">
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

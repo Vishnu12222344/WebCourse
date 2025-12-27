@@ -3,11 +3,12 @@ package com.WebCourse.Model;
 import jakarta.validation.constraints.*;
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "courses")
+@Table(name = "courses", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"courseName", "listedOn"})
+})
 @Data
 public class Course {
 
@@ -29,6 +30,7 @@ public class Course {
     private Integer duration;
 
     @NotNull(message = "Listed date is required")
+    @Column(nullable = false)
     private LocalDate listedOn;
 
     @NotNull(message = "Price is required")
