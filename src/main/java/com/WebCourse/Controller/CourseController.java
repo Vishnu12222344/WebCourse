@@ -16,12 +16,6 @@ public class CourseController {
     @Autowired
     private CourseService service;
 
-    @GetMapping("/")
-    public String index() {
-        // This looks for index.html in the static or templates folder
-        return "forward:/index.html";
-    }
-
     @PostMapping("/addcourses")
     public List<Course> addCourses(@RequestBody List<Course> courses) {
         return service.addCourses(courses);

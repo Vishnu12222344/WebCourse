@@ -38,7 +38,6 @@ public class CourseService {
         repository.deleteById(id);
     }
     public Course updateCourse(Long courseId, Course course) {
-        // Reuse our custom exception logic
         Course existingCourse = repository.findById(courseId)
                 .orElseThrow(() -> new CourseNotFoundException(courseId));
 
